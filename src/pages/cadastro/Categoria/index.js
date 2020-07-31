@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PageDefault from '../../../components/PageDefault'
 import { Link } from 'react-router-dom'
 import FormField from '../../../components/FormField/index.js';
+import Button from '../../../components/Button';
 
 function CadastroCategoria() {
     const [categorias, setCategorias] = useState([]);
@@ -51,7 +52,7 @@ function CadastroCategoria() {
                 <FormField 
                     label="Descrição"
                     name="descricao"
-                    type="text"
+                    type="textarea"
                     value={values.descricao}
                     onChange={handleChange}
                 />
@@ -62,31 +63,17 @@ function CadastroCategoria() {
                     type="color"
                     value={values.cor}
                     onChange={handleChange}
-                />
-               
-               {/*
-                <div> 
-                    <label>
-                        Color:
-                        <input
-                            type="color"
-                            name="cor"
-                            value={values.cor}
-                            onChange={handleChange}                   
-                        />
-                    </label>
-                </div>      
-               */}  
+                />                           
 
-                <button>
+                <Button>
                     Cadastrar
-                </button>
+                </Button>
             </form>
 
             <ul>
-                {categorias.map((categorias, indice) => {
+                {categorias.map((categorias) => {
                     return (
-                        <li key={`${categorias}${indice}`}>
+                        <li key={`${categorias.nome}`}>
                             {categorias.nome}
                         </li>
                     )                 
